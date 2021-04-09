@@ -1,0 +1,3 @@
+[submodule "Spoons/Zoom.spoon"]
+	path = Spoons/Zoom.spoon
+	url = https://github.com/jpf/Zoom.spoon.git
