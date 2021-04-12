@@ -1,22 +1,35 @@
--- Hammerspoon hyperkey (and a test)
+-- dark mode -------------------------------------------------------------------
+hs.console.darkMode(true)
+hs.console.consoleCommandColor(hs.drawing.color.white)
+
+-- convenience functions -------------------------------------------------------
+ez = require 'ez'
+
+-- Hammerspoon hyperkey (and a test) -------------------------------------------
 hyper = {"cmd", "alt", "ctrl"}
-hs.hotkey.bind(hyper, "T", function()
-		hs.alert.show("You pressed Hyper+T!")
-end)
+shyper = {"cmd", "alt", "ctrl", "shift"}
+hs.hotkey.bind(hyper, "H", ez.help)
+hs.hotkey.bind(hyper, "C", ez.clear)
+hs.hotkey.bind(hyper, "R", hs.reload)
 
-hs.hotkey.bind(hyper, "R", function()
-		hs.alert.show("Config Reloaded!")
-		hs.reload()
-end)
+-- example of a holdFunc
+hold = {} -- a namespace for holdFunc state
+hs.hotkey.bind(hyper, "T", table.unpack( -- unpack the returned table
+	ez.holdFunc( -- takes in two actions, does the rest
+		function() hs.alert.show("Hyper + T") end, -- press
+		function() hs.alert.show("Hyper + T: Judgement Day") end,-- hold
+		hold.test, -- and here is the state variable
+		-- and a done action!
+		function() hs.alert.show ("Hyper + T: Rise of the Machines") end)))
 
--- Zoom 
--- spoon: https://github.com/jpf/Zoom.spoon
-hs.loadSpoon("Zoom")
+-- example of a stateless holdFunc (holdFuncSL)
 
-spoon.Zoom:start()
+-- Zoom Setup (https://github.com/jpf/Zoom.spoon) ------------------------------
+hs.loadSpoon("Zoom") 
 
--- my ugly debug module :)
-local zoomDebug = require "zoomDebug"
+spoon.Zoom:start() -- end Zooom config ----------------------------------------
 
--- fn+h/j/k/l arrow key emulation
--- hs.loadSpoon("FnMate")
+-- zh --------------------------------------------------------------------------
+zh = require "zh" -- script library zoomHelper
+zh.statusPrinter(true)
+
