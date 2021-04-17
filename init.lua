@@ -13,7 +13,8 @@ clear = hs.console.clearConsole
 help = function() 
 	print([[
 == HELP =============================================================
-	=== CONSOLE ==================================================
+the usual help() is still available: hs.help()
+	=== CONSOLE PRIMER ===========================================
 the best way to learn Hammerspoon is to run functions right in the
 	console. You get nice feedback and it's a great way to poke
 	around for new tricks in the documentation. Confusingly, some
