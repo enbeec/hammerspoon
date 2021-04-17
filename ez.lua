@@ -73,10 +73,10 @@ function ez.spot:Dim(div)
 		if isDim then
 			if v >= self.oldVol then
 				isDim = false
-			else
-				-- it was probably just too dim, lets adjust the div?
-				local divAdjust = 0.3
-				self.dimDiv = self.dimDiv - divAdjust
+--			else
+--				-- it was probably just too dim, lets adjust the div?
+--				local divAdjust = 0.3
+--				self.dimDiv = self.dimDiv - divAdjust
 			end
 		end	
 		-- if !isDim, we need to sync and dim anyway

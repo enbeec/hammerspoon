@@ -2,4 +2,4 @@
 
 ## Installation
 
-Make sure you run `git submodule update --init --recursive` to grab all the spoons
+Make sure you run `git submodule update --init --recursive` to grab the Zoom spoon
