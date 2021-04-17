@@ -48,19 +48,55 @@ function ez.holdFunc(action, holdAction, held, releaseAction)
 	return { doAction, doRelease, doHold }
 end
 
--- TODO: the ez holdFunc SL is stateless [and can fire a third action after cooling down upon release]
-function ez.holdFuncSL(action, holdAction, delay, doneAction)
-	delay = delay or 0.2
-	doneAction = doneAction or function() end
-	-- wrap action function to create a timer with given delay and doneAction
-	action = function() action() end
-	-- wrap holdAction function with a function that:
-	-- 		does nothing and resets the timer if it's running or
-	-- 		does the holdAction and starts the timer
-	doHold = function() end
-	-- release function should reset the timer one more time
-	release = function() end
-	return { action, doHold, release }
+--============= SPOTIFY ==================================
+-- "aliases" so to speak
+vol = hs.spotify.setVolume
+
+-- some state
+ez.spot = {
+	currentVol = hs.spotify.getVolume(),
+	isDim = false,
+	dimDiv = 2
+}
+
+-- main functions
+function ez.spot:Sync()
+	self.currentVol = hs.spotify.getVolume()
 end
+
+function ez.spot:Dim(div)
+	div = div or self.dimDiv
+	local v = hs.spotify.getVolume()
+
+	-- check if volume needs to be updated
+	if v ~= self.currentVol then
+		if isDim then
+			if v >= self.oldVol then
+				isDim = false
+			else
+				-- it was probably just too dim, lets adjust the div?
+				local divAdjust = 0.3
+				self.dimDiv = self.dimDiv - divAdjust
+			end
+		end	
+		-- if !isDim, we need to sync and dim anyway
+		self:Sync()
+	end
+	
+	if isDim then
+		self.currentVol = self.oldVol
+		isDim = false
+	else
+		self.oldVol = self.currentVol
+		self.currentVol = math.ceil(self.currentVol / div)
+		isDim = true
+	end
+	
+	-- all logic is handled, set and return the Spotify volume
+	hs.spotify.setVolume(self.currentVol)
+	return self.currentVol
+end
+
+-- end spotify
 
 return ez

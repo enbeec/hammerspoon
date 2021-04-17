@@ -22,8 +22,6 @@ hs.hotkey.bind(hyper, "T", table.unpack( -- unpack the returned table
 		-- and a done action!
 		function() hs.alert.show ("Hyper + T: Rise of the Machines") end)))
 
--- example of a stateless holdFunc (holdFuncSL)
-
 -- Zoom Setup (https://github.com/jpf/Zoom.spoon) ------------------------------
 hs.loadSpoon("Zoom") 
 
