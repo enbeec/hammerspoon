@@ -1,5 +1,7 @@
 # Val's Hammerspoon Repo
 
+you are on the **starter config** (that may be all that's available so far)
+
 ## About the Spoon directory
 
 - Some of them are committed straight to the repo, as they haven't changed in a **long** time (Emoji was last updated 3 years ago)
