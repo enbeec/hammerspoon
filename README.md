@@ -1,7 +1,5 @@
 # Val's Hammerspoon Repo
 
-My Little Repo, My Little Repo // we all grow up some day :)
-
 ## About the Spoon directory
 
 - Some of them are committed straight to the repo, as they haven't changed in a **long** time (Emoji was last updated 3 years ago)
@@ -9,4 +7,6 @@ My Little Repo, My Little Repo // we all grow up some day :)
 
 ## Installation
 
-Make sure you run `git submodule update --init --recursive` to grab all dev Spoons!
+Clone this repo into `~/.hammerspoon` if you are not a Hammerspoon user already. Open Hammerspoon (or if it's running just make sure you can see the console) and reload the config if necessary.
+
+__Make sure you run `git submodule update --init --recursive` to grab all dev Spoons!__
