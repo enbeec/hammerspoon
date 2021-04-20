@@ -14,7 +14,7 @@ zToggle = function()
 end
 
 -- and the key binding!
-hs.hotkey.bind('opt', 'z', zToggle)
+hs.hotkey.bind('option', 'z', zToggle)
 
 print([[.
 
