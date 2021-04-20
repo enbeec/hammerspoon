@@ -8,9 +8,11 @@
 - The Zoom code is referenced within this repo, but it isn't downloaded by default. You can add it by running: `git submodule update --init` and that's it! Start Hammerspoon and test out your shortcuts!
 - In the future, you may be asked to `submodule update` again but don't do it on your own. You want to keep your version of the Zoom plugin **stable**. If there's an update to the plugin, I'll pull it and make sure it works with your config first.
 
-**Beware** -- the reason I wasn't able to just write up a slick little config for us all to share is because there are bugs in the Zoom plugin. Thankfully, toggling the mute works just fine! However, if you do notice it failing, click on the Hammerspoon logo in your Menu Bar and select "Console....". Copy everything in there and shoot it to me so I can debug any problems! -- __Oh and try to make sure Hammerspoon is running before Zoom if you can__.
+**Beware** -- the reason I wasn't able to just write up a slick little config for us all to share is because there are bugs in the Zoom plugin. Thankfully, toggling the mute works just fine! However, if you do notice it failing, click on the Hammerspoon logo in your Menu Bar and select "Console....". Copy everything in there and shoot it to me so I can debug any problems! 
 
 ## Usage
+
+First, make sure Hammerspoon is running *before* Zoom. Since you aren't actively editing your config, you won't need to worry about finding a time to reboot your Zoom so that you can try a new config.
 
 ⌥Z (`opt-Z`) -- Toggle Zoom Mute
 
