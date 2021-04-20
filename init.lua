@@ -1,4 +1,5 @@
 -- Hammerspoon hyperkey (and a test)
+--
 hyper = {"cmd", "alt", "ctrl"}
 hs.hotkey.bind(hyper, "T", function()
 		hs.alert.show("You pressed Hyper+T!")
